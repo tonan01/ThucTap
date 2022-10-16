@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "DemKhoangTrang";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true){
+        <h1>Đếm số khoản trắng trong 1 chuỗi dữ liệu truyền vào</h1>
+        <div class="row">
+            <div class="col-md-6 offset-md-3 col-sm-6 col-xs-12">
+                <form>
+                    <div class="form-group">
+                        <label class="control-label" for="pChuoi"> Nhập chuỗi </label>
+                        <input class="form-control"
+                               id="pChuoi"
+                               name="pChuoi"
+                               type="text" />
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button class="btn btn-primary" name="submit" type="submit">
+                                Đếm
+                            </button>
+                        </div>
+                        <center>
+                            <span class="text-danger">@ViewBag.ErrorDemKhoangTrang</span>
+                            <span>@ViewBag.DemKhoangTrang</span>
+                        </center>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+}
+

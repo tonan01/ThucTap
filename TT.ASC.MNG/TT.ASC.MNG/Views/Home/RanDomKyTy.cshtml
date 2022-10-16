@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "RanDomKyTy";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@using (Html.BeginForm())
+{@Html.ValidationSummary(true)
+{
+    <h1>Random chuỗi ký tự và số có chiều dài bất kỳ</h1>
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-sm-6 col-xs-12">
+            <form>
+                <div class="form-group">
+                    <label style="float: left" class="control-label" for="KyTu">
+                        Nhập kí tự:
+                    </label>
+                    <input class="form-control"
+                           id="KyTu"
+                           name="KyTu"
+                           type="text" />
+                    <span class="text-danger">@ViewData["Loi1"]</span>
+                </div>
+                <div class="form-group">
+                    <label style="float: left" class="control-label" for="SoLuong">
+                        Số lượng random:
+                    </label>
+                    <input class="form-control"
+                           id="SoLuong"
+                           name="SoLuong"
+                           value="0"
+                           type="number" />
+                    <span class="text-danger">@ViewData["Loi2"]</span>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <button class="btn btn-primary" name="submit" type="submit">
+                            RanDom
+                        </button>
+                    </div>
+                    <center>
+                        <span>@ViewBag.RanDomKyTy</span>
+                    </center>
+                </div>
+            </form>
+        </div>
+    </div>
+}
+}

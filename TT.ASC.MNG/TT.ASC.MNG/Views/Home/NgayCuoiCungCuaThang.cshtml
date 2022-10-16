@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "NgayCuoiCungCuaThang";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    {
+        <h1>Trả về ngày cuối cùng của tháng</h1>
+        <div class="row">
+            <div class="col-md-6 offset-md-3 col-sm-6 col-xs-12">
+                <form>
+                    <div class="form-group">
+                        <label style="float: left" class="control-label" for="nThang">
+                            Tháng:
+                        </label>
+                        <input class="form-control"
+                               id="nThang"
+                               name="nThang"
+                               value="1"
+                               type="number" />
+                        <span class="text-danger">@ViewData["Loi1"]</span>
+                    </div>
+                    <div class="form-group">
+                        <label style="float: left" class="control-label" for="nNam">
+                            Năm:
+                        </label>
+                        <input class="form-control"
+                               id="nNam"
+                               value="2022"
+                               name="nNam"
+                               type="number" />
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button class="btn btn-primary" name="submit" type="submit">
+                                Tìm ngày
+                            </button>
+                        </div>
+                        <center>
+                            <span>@ViewBag.NgayCuoiCungCuaThang</span>
+                            <span class="text-danger">@ViewData["Loi2"]</span>
+                        </center>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+
+}
+
+
+

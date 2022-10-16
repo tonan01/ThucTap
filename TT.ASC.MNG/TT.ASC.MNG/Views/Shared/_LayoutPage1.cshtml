@@ -1,0 +1,135 @@
+﻿!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          rel="stylesheet"
+          id="bootstrap-css" />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link href="https://use.fontawesome.com/releases/v5.0.11/css/all.css"
+          rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous" />
+    <!-- css -->
+    <link rel="stylesheet" href="~/Public/assets/style.css" />
+    <!-- Icon -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="main">
+        <div id="menu">
+            <div class="nav-side-menu">
+                <div class="brand"><i class="fa-light fa-books"></i>Phạm Gia Bảo</div>
+                <i class="fa fa-bars fa-2x toggle-btn"
+                   data-toggle="collapse"
+                   data-target="#menu-content"></i>
+
+                <div class="menu-list">
+                    <ul id="menu-content" class="menu-content collapse out">
+                        <!-- <li>
+                                <a href="#">
+                                <i class="fas fa-tachometer-alt fa-lg"></i> Dashboard
+                                </a>
+                              </li> -->
+
+                        <li data-toggle="collapse"
+                            data-target="#products"
+                            class="collapsed active">
+                            <a href="#">
+                                <i class="fas fa-book"></i> Thực Hành Tuần 1
+                                <span class="arrow"></span>
+                            </a>
+                        </li>
+                        <ul class="sub-menu collapse" id="products">
+                            <li class="active"><a href="@Url.Action("DinhDangNgayThangNam","Home")">1. Định dạng thời gian</a></li>
+                            <li><a href="@Url.Action("DocSo","Home")">2. Đọc dãy số bất kỳ</a></li>
+                            <li><a href="@Url.Action("DocSoTien","Home")">3. Đọc số tiền bất kỳ</a></li>
+                            <li><a href="@Url.Action("RanDomKyTy","Home")">4. Random chuỗi ký tự</a></li>
+                            <li><a href="@Url.Action("NgayDauTienCuaThang","Home")">5. Ngày đầu tiên của tháng</a></li>
+                            <li><a href="@Url.Action("NgayCuoiCungCuaThang","Home")">6. Ngày cuối tháng</a></li>
+                            <li><a href="@Url.Action("NgayDauTienCuaTuan","Home")">7. Ngày đầu tuần</a></li>
+                            <li><a href="@Url.Action("NgayCuoiCuaTuan","Home")">8. Ngày cuối tuần</a></li>
+                            <li><a href="@Url.Action("DemKhoangTrang","Home")">9. Đếm số khoản trắng</a></li>
+                            <li><a href="@Url.Action("isEmail","Home")">10. Tính đúng đắn của email</a></li>
+                            <li><a href="@Url.Action("TachHoTen","Home")">11. Cắt chuỗi họ tên </a></li>
+                            <li><a href="@Url.Action("LamTronThapPhan","Home")">12. Làm tròn</a></li>
+                            <li><a href="@Url.Action("VietHoaChuCaiDau","Home")">13. Viết hoa đầu mỗi ký tự đâu tiên </a></li>
+                        </ul>
+
+                        <li data-toggle="collapse"
+                            data-target="#service"
+                            class="collapsed">
+                            <a href="#">
+                                <i class="fab fa-fort-awesome-alt fa-lg"></i> Thực Hành Tuần
+                                2 <span class="arrow"></span>
+                            </a>
+                        </li>
+                        <ul class="sub-menu collapse" id="service">
+                            <li><a href="@Url.Action("SoLuongVaViTriKyTu","Home")">1. Kiểm tra vị trí của ký tự</a></li>
+                            <li><a href="@Url.Action("RanDomHoDemTen","Home")">2. Random họ và tên</a></li>
+                            <li><a href="@Url.Action("TaoListCoSo","Home")">3. Thực hiện xây dựng các đối tượng</a></li>
+
+                        </ul>
+
+                        <!-- <li data-toggle="collapse" data-target="#new" class="collapsed">
+                                <a href="#"><i class="fab fa-pagelines fa-lg"></i> New <span class="arrow"></span></a>
+                              </li>
+                              <ul class="sub-menu collapse" id="new">
+                                <li>New New 1</li>
+                                <li>New New 2</li>
+                                <li>New New 3</li>
+                              </ul>
+
+
+                               <li>
+                                <a href="#">
+                                <i class="fas fa-user-tie fa-lg"></i> Profile
+                                </a>
+                                </li>
+
+                               <li>
+                                <a href="#">
+                                <i class="fa fa-users fa-lg"></i> Users
+                                </a>
+                              </li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="container">
+            <div class="noidung">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <script src="~/Public/assets/main.js"></script>
+    
+</body>
+</html>
+

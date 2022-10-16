@@ -1,0 +1,6 @@
+D:\ThucTapCongTy\Bai1\Web\TT.ASC.MNG\TT.ASC.DATA\bin\Debug\TT.ASC.DATA.dll
+D:\ThucTapCongTy\Bai1\Web\TT.ASC.MNG\TT.ASC.DATA\bin\Debug\TT.ASC.DATA.pdb
+D:\ThucTapCongTy\Bai1\Web\TT.ASC.MNG\TT.ASC.DATA\obj\Debug\TT.ASC.DATA.csproj.CoreCompileInputs.cache
+D:\ThucTapCongTy\Bai1\Web\TT.ASC.MNG\TT.ASC.DATA\obj\Debug\TT.ASC.DATA.dll
+D:\ThucTapCongTy\Bai1\Web\TT.ASC.MNG\TT.ASC.DATA\obj\Debug\TT.ASC.DATA.pdb
+D:\ThucTapCongTy\Bai1\Web\TT.ASC.MNG\TT.ASC.DATA\obj\Debug\TT.ASC.DATA.csprojAssemblyReference.cache

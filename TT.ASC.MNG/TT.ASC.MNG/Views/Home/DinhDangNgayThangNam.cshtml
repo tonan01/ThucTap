@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "DinhDangNgayThangNam";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true){
+
+<h1>Viết hàm để định dạng ngày tháng năm, giờ phút giây</h1>
+<div class="row">
+
+    <div class="col-md-6 offset-md-3 col-sm-6 col-xs-12">
+        <form action="/Home/DinhDangNgayThangNam" method="post">
+            <div class="form-group">
+                <label for="pdt">Lịch:</label>
+                <input class="form-control"
+                       type="datetime-local"
+                       id="pdt"
+                       name="pdt" />
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="pLoaiDinhDang">Loại Định Dạng</label>
+                    </div>
+                    <select name="pLoaiDinhDang" class="custom-select" id="pLoaiDinhDang">                      
+                        <option value="MM/dd/yyyy">MM/dd/yyyy</option>
+                        <option value="M/d/yyyy">M/d/yyyy</option>
+                        <option value="d/M/yyyy HH:mm:ss">d/M/yyyy HH:mm:ss</option>
+                        <option value="dd/MM/yyyy HH:mm:ss">dd/MM/yyyy HH:mm:ss</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <button class="btn btn-primary " name="submit" type="submit">
+                        Định Dạng
+                    </button>
+                </div>
+                <center>
+                    <span class="text-danger">@ViewBag.ErrorDinhDang</span>
+                    <span>@ViewBag.DinhDang</span>
+                </center>
+            </div>
+        </form>
+    </div>
+</div>
+    }
+}

@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "LamTronThapPhan";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true){
+
+<h1>Làm tròn các số thập phân truyền vào theo các dạng: Floor, Truncate, Round, Ceiling</h1>
+        <div class="row">
+
+            <div class="col-md-6 offset-md-3 col-sm-6 col-xs-12">
+                <form>
+                    <div class="form-group">
+                        <label style="float:left" class="control-label" for="pSoThapPhan"> Nhập số làm tròn </label>
+                        <input class="form-control"
+                               id="pSoThapPhan"
+                               name="pSoThapPhan"
+                               type="text" />
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="pLoaiDinhDang">Loại làm tròn</label>
+                            </div>
+                            <select name="pLuaChonLamTron" class="custom-select" id="pLuaChonLamTron">
+                                <option value="Floor">Floor</option>
+                                <option value="Truncate">Truncate</option>
+                                <option value="Round">Round</option>
+                                <option value="Ceiling">Ceiling</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button class="btn btn-primary " name="submit" type="submit">
+                                Làm Tròn
+                            </button>
+                        </div>
+                        <center>
+                            <span class="text-danger">@ViewBag.ErrorLamTronThapPhan</span>
+                            <span>@ViewBag.LamTronThapPhan</span>
+                        </center>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+}
+

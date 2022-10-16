@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "DocSoTien";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    {
+
+        <h1>Đọc số tiền bất kỳ</h1>
+        <div class="row">
+            <div class="col-md-6 offset-md-3 col-sm-6 col-xs-12">
+                <form>
+                    <div class="form-group">
+                        <label class="control-label" for="SoTien"> Nhập số tiền </label>
+                        <input class="form-control"
+                               id="SoTien"
+                               name="SoTien"
+                               type="number" />
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button class="btn btn-primary" name="submit" type="submit">
+                                Đọc số
+                            </button>
+                        </div>
+                        <center>
+                            <span class="text-danger">@ViewBag.ErrorSoTien</span>
+                            <span>@ViewBag.SoTien</span>
+                        </center>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+
+}
+

@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "SoLuongVaViTriKyTu";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    {
+<h1>1.	Viết hàm kiểm tra chuỗi ký tự, kết quả trả về xác định được trong chuỗi có bao nhiêu ký tự được tìm và ở vị trí bao nhiêu</h1>
+        <div class="row">
+            <div class="col-md-6 offset-md-3 col-sm-6 col-xs-12">
+                <form>
+                    <div class="form-group">
+                        <label style="float: left" class="control-label" for="pInput">
+                            Nhập chuỗi:
+                        </label>
+                        <input class="form-control"
+                               id="pInput"
+                               name="pInput"
+                               type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label style="float: left" class="control-label" for="pTimKyTu">
+                            Ký tự cần tìm:
+                        </label>
+                        <input class="form-control"
+                               id="pTimKyTu"
+                               name="pTimKyTu"
+                               type="text" />
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button class="btn btn-primary" name="submit" type="submit">
+                                Tìm
+                            </button>
+                        </div>
+                        <center>
+                            <span>@ViewBag.SoLuongVaViTriKyTu</span>
+                            <span class="text-danger">@ViewBag.ErrorSoLuongVaViTriKyTu</span>
+                        </center>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+
+}
+
+

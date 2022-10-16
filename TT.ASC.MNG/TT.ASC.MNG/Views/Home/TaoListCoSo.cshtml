@@ -1,0 +1,361 @@
+﻿
+@{
+    ViewBag.Title = "TaoListCoSo";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+@using TT.ASC.DATA;
+@model List<TT.ASC.DATA.CoSo>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true){
+        <h1>Bài 3</h1>
+        <div class="row">
+            <div class="col-md-6 offset-md-3 col-sm-6 col-xs-12">
+                <form action="~/Controllers/Home/TaoListCoSo" method="post">
+                    <!-- Tạo cở sở -->
+                    <div class="form-row">
+                        <div class="form-group col-md">
+                            <label style="float: left" for="pSoLuongCoSo">Số lượng cơ sở:</label>
+                            <input type="number"
+                                   class="form-control"
+                                   id="pSoLuongCoSo"
+                                   name="pSoLuongCoSo"
+                                   placeholder="Số lượng cơ sở" />
+                        </div>
+                    </div>
+                    <!--btn tên cơ sở -->
+                    <div class="form-group ">
+                        <div style="float: left; margin-bottom: 13px">
+                            <button class="btn btn-primary" name="submit" type="submit">
+                                Tạo cơ sở
+                            </button>
+                            <span class="text-danger">@ViewBag.ErrorTaoListCoSo</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+
+}
+@using (Html.BeginForm("TaoListLopHoc", "Home"))
+{
+    @Html.ValidationSummary(true){ }
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-sm-6 col-xs-12">
+            <!-- tạo sinh viên -->
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="pID">Loại cơ sở</label>
+                    </div>
+                    <select name="pID"
+                            class="custom-select"
+                            id="pID">
+                        @{
+                            List<CoSo> cs = (List<CoSo>)Session["CoSo"];
+                            if (cs != null)
+                            {
+                                foreach (var item in cs)
+                                {
+                                    <option value="@item.ID">@item.Ten</option>
+                                }
+                            }
+                            else
+                            {
+                            }
+
+                        }
+                        @*@if (Model == null)
+                            {
+
+                            }
+                            else
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <option value="@item.ID">@item.Ten</option>
+                                }
+                            }*@
+
+                    </select>
+                </div>
+            </div>
+            <!-- Tạo lớp -->
+            <div class="form-row">
+                <div class="form-group col-md">
+                    <label style="float: left" for="psoLuongLopHoc">Số lượng lớp:</label>
+                    <input type="number"
+                           class="form-control"
+                           id="psoLuongLopHoc"
+                           name="psoLuongLopHoc"
+                           placeholder="Số lượng lớp" />
+                </div>
+
+            </div>
+            <!-- Nhập năm-->
+            <div class="form-row">
+                <div class="form-group col-md">
+                    <label style="float: left" for="pNamMoLop">Năm:</label>
+                    <input type="number"
+                           class="form-control"
+                           id="pNamMoLop"
+                           name="pNamMoLop"
+                           placeholder="Số lượng cơ sở" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div style="float: left; margin-bottom: 13px">
+                    <button class="btn btn-primary" name="submit" type="submit">
+                        Tạo Lớp
+                    </button>
+                    <span class="text-danger">@ViewBag.ErrorTaoListLopHoc</span>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@using (Html.BeginForm("TaoListSinhVien", "Home"))
+{
+    @Html.ValidationSummary(true){
+
+        {
+            List<LopHoc> lh = (List<LopHoc>)Session["LopHoc"];
+            if (lh != null)
+            {
+                <div class="row">
+                    <div class="col-md-6 offset-md-3 col-sm-6 col-xs-12">
+                        <form>
+                            <!--combobox Lop-->
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="pIDLopHoc">
+                                            Lớp
+                                        </label>
+                                    </div>
+                                    <select name="pIDLopHoc"
+                                            class="custom-select"
+                                            id="pIDLopHoc">
+
+                                        @foreach (var item in lh)
+                                        {
+                                            <option value="@item.ID">Lớp @item.ID</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Tạo sinh vien -->
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="pLoaiDinhDang">
+                                            Năm
+                                        </label>
+                                    </div>
+                                    <select name="pLuaChonLamTron"
+                                            class="custom-select"
+                                            id="pLuaChonLamTron">
+                                        @foreach (var item in lh.Select(s => s.NamMoLop).Distinct())
+                                        {
+                                            <option value="@item">@item</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!--Số lượng sinh vien-->
+                            <div class="form-group">
+                                <div class="form-group col-md-6">
+                                    <label style="float: left" for="pSoLuongSinhVien">Số lượng sinh viên:</label>
+                                    <input type="number"
+                                           class="form-control"
+                                           id="pSoLuongSinhVien"
+                                           value="20"
+                                           name="pSoLuongSinhVien"
+                                           placeholder="Số lượng sinh viên mỗi lớp" />
+                                </div>
+                            </div>
+                            <!-- Tạo lớp -->
+                            <div class="form-row">
+                                <!--Nam-->
+                                <div class="form-group col-md">
+                                    <label style="float: left" for="pSLNam">Số lượng nam:</label>
+                                    <input type="number"
+                                           class="form-control"
+                                           id="pSLNam"
+                                           name="pSLNam"
+                                           placeholder="Số lượng nam" />
+                                </div>
+                                <!--Nữ-->
+                                <div class="form-group col-md-6">
+                                    <label style="float: left" for="pSLNu">Số lượng nữ:</label>
+                                    <input type="number"
+                                           class="form-control"
+                                           id="pSLNu"
+                                           name="pSLNu"
+                                           placeholder="Số lượng nữ" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <button class="btn btn-primary" name="submit" type="submit">
+                                        Tạo Lớp
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            }
+            else
+            {
+                <div class="row">
+                    <div class="col-md-6 offset-md-3 col-sm-6 col-xs-12">
+                        <form>
+                            <!-- Tạo sinh vien -->
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="pLoaiDinhDang">
+                                            Năm
+                                        </label>
+                                    </div>
+                                    <select name="pLuaChonLamTron"
+                                            class="custom-select"
+                                            id="pLuaChonLamTron">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="pLoaiDinhDang">
+                                            Lớp
+                                        </label>
+                                    </div>
+                                    <select name="pLuaChonLamTron"
+                                            class="custom-select"
+                                            id="pLuaChonLamTron">
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Tạo lớp -->
+                            <div class="form-row">
+                                <div class="form-group col-md">
+                                    <label style="float: left" for="inputEmail4">Số lượng nam:</label>
+                                    <input type="number"
+                                           class="form-control"
+                                           id="inputEmail4"
+                                           placeholder="Số lượng nam" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label style="float: left" for="inputPassword4">Số lượng nữ:</label>
+                                    <input type="number"
+                                           class="form-control"
+                                           id="inputPassword4"
+                                           placeholder="Số lượng nữ" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <button class="btn btn-primary" name="submit" type="submit">
+                                        Tạo Lớp
+                                    </button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            }
+        }
+
+    }
+}
+<!--TreeView-->
+@using (Html.BeginForm())
+{
+    {
+        List<CoSo> cs = (List<CoSo>)Session["CoSo"];
+        List<LopHoc> lh = (List<LopHoc>)Session["LopHoc"];
+        List<SinhVien> sv = (List<SinhVien>)Session["SinhVien"];
+
+
+    <!-- TreeView -->
+    <div class="form-group">
+        <ul id="myUL">
+            <li>
+                <span class="caret">Cơ sở</span>
+                <ul class="nested">
+                    @if (cs != null)
+                    {
+                        //cơ sở
+                        foreach (var itemCS in cs)
+                        {
+                            <li>@itemCS.Ten</li>
+                            if (lh != null)
+                            {
+                                //năm học
+                                var tonTaiNamHoc = lh.Where(s => s.CoSoDaoTao == itemCS.ID).ToList();
+                                if (tonTaiNamHoc.Count>0)//có tồn tại
+                                {
+                                    <li>
+                                        <span class="caret">Năm học</span>
+                                        <ul class="nested">
+                                            @foreach (var itemNH in lh.Where(s => s.CoSoDaoTao == itemCS.ID).Select(c => c.NamMoLop).Distinct())//không trùng
+                                            {
+                                                <li>@itemNH</li>
+                                                
+                                                    //lớp học
+                                                    var tonTaiLopHoc = lh.Where(s => s.NamMoLop == itemNH).ToList();
+                                                    if(tonTaiLopHoc.Count>0)
+                                                    {
+                                                         <li>
+                                                          <span class="caret">Lớp</span>
+                                                          <ul class="nested">
+                                                              @foreach (var itemLH in lh.Where(s => s.NamMoLop == itemNH && s.CoSoDaoTao == itemCS.ID).ToList())//Chung năm và chung cơ sở
+                                                              {
+                                                                  //kiểm tra có sinh viên đó ko
+                                                                  if (sv != null)
+                                                                  {
+                                                                      var tonTaiSinhVienTrongLop = sv.Where(s => s.LopHoc == itemLH.ID).ToList();
+                                                                      if (tonTaiSinhVienTrongLop.Count > 0)//có sinh viên
+                                                                      {
+                                                                          <li><a href="@Url.Action("XemChiTietLop", "Home",new {@ID=itemLH.ID})">@itemLH.TenLop</a></li>
+                                                                      }
+                                                                      else
+                                                                      {
+                                                                          <li>@itemLH.TenLop</li>
+                                                                      }
+                                                                  }
+                                                                  else //không có
+                                                                  {
+                                                                      <li>@itemLH.TenLop</li>
+                                                                  }
+
+                                                              }
+                                                          </ul>
+                                                        </li>
+                                                    }
+
+                                                
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                                else//không tồn tại
+                                {
+
+                                }
+                            }
+                        }
+                    }
+                </ul>
+            </li>
+        </ul>
+    </div>
+    }
+}
